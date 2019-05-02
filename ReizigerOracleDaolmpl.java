@@ -17,11 +17,11 @@ public class ReizigerOracleDaolmpl implements ReizigerDao{
 	}
 	
 	//format voor de datum is nog niet hetzelfde voor de vergelijking
-	public static ArrayList<Reiziger> findByGBdatum(String GBdatum){
+	public static ArrayList<Reiziger> findByGBdatum(Date GBdatum){
 		ArrayList<Reiziger> reizigersMetDatum = new ArrayList<Reiziger>();
 		for (int i = 0; i < reizigers.size(); i++) {
 			Reiziger reiziger = reizigers.get(i);
-			if (reiziger.getGBdatum().equals(Date.parse(GBdatum))) {
+			if (reiziger.getGBdatum().equals(GBdatum)) {
 				reizigersMetDatum.add(reiziger);
 			}
 		}
@@ -31,7 +31,8 @@ public class ReizigerOracleDaolmpl implements ReizigerDao{
 	//geen idee wat hij moet updaten
 	public static Reiziger update(Reiziger reiziger) {
 		for (int i = 0; i < reizigers.size(); i++) {
-			if (reizigers.get(i).getNaam().equals(reiziger.getNaam()) && reizigers.get(i).getGBdatum().equals(reiziger.getGBdatum())) {
+			if (reizigers.get(i).getNaam().equals(reiziger.getNaam()) && 
+					reizigers.get(i).getGBdatum().equals(reiziger.getGBdatum())) {
 				return reiziger;
 			}
 		}
