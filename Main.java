@@ -1,0 +1,13 @@
+package reiziger;
+
+public class Main {
+	public static void main(String[] arg){
+		Reiziger r1 = new Reiziger();
+		r1.setNaam("faka");
+		ReizigerOracleDaolmpl.save(r1);
+		String s = "";
+		for (Reiziger reiziger : ReizigerOracleDaolmpl.findAll()) {
+			System.out.println(reiziger.getNaam());
+		}
+	}
+}
